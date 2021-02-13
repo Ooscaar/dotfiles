@@ -5,6 +5,7 @@
 - clean: ['~']
 
 - link:
+    ~/.oh-my-zsh: zsh/oh-my-zsh
     ~/.tmux.conf: tmux.conf
     ~/.vimrc: vimrc
     ~/.zshrc: zshrc
