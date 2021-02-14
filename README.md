@@ -7,3 +7,6 @@ Personal dotfiles
 - bash: ~/.bashrc
 - zsh: ~/.zshr
   - oh-my-zsh: ~/.oh-my-zsh
+
+## TODO:
+- [ ] Fix plugins located on vim/pack folder 
