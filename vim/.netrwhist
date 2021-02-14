@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/op/Universidad/4A/DAT/CODI_TEORIA/calculadora'
+let g:netrw_dirhist_2='/home/op/Universidad/4A/DAT/CODI_TEORIA'
+let g:netrw_dirhist_1='/home/op/Universidad/4A/PAE/Capture_Test/LAB/Filter'
+let g:netrw_dirhist_0='/home/op/Universidad/4A/PAE/Capture_Test/LAB'
+let g:netrw_dirhist_9='/home/op/Universidad/4A/PAE/Capture_Test'
+let g:netrw_dirhist_8='/home/op/m/github/Playground/example_pkg'
+let g:netrw_dirhist_7='/'
+let g:netrw_dirhist_6='/home'
+let g:netrw_dirhist_5='/home/op'
+let g:netrw_dirhist_4='/home/op/.emacs.d'
