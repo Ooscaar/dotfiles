@@ -10,3 +10,5 @@ Personal dotfiles
 
 ## TODO:
 - [ ] Fix plugins located on vim/pack folder 
+  - In case not working update submodules manually
+- [ ] Fix grubox color not displayed correctly
