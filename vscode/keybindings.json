@@ -2,12 +2,12 @@
 [
       {
             "key": "ctrl+z",
-            "command": "workbench.action.terminal.focus"
+            "command": "workbench.action.toggleMaximizedPanel",
+            "when": "! terminalfocus"
       },
-
       {
             "key": "ctrl+z",
-            "command": "workbench.action.focusActiveEditorGroup",
+            "command": "workbench.action.terminal.toggleTerminal",
             "when": "terminalFocus"
       }
 ]
