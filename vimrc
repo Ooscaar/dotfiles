@@ -161,6 +161,7 @@ filetype plugin indent on
 
 " Color scheme "
 let g:airline_theme='gruvbox'
+set bg=dark
 
 "------------------------------------------------
 "Plugin configuration
