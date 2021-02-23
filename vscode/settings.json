@@ -1,0 +1,21 @@
+{
+    // General configs
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.tabSize": 4,
+    "workbench.colorTheme": "Visual Studio Light",
+    "editor.minimap.maxColumn": 80,
+    "window.zoomLevel": 0,
+    "editor.formatOnSave": true,
+
+    // Vim config
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.smartRelativeLine": true,
+    "vim.camelCaseMotion.enable": true
+}
