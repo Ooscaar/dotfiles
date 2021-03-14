@@ -20,3 +20,9 @@
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "vim/pack/plugins/start/lightline"]
+	path = vim/pack/plugins/start/lightline
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule "vim/pack/vendor/start/ctrlp.vim"]
+	path = vim/pack/vendor/start/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
