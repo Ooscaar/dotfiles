@@ -1,4 +1,4 @@
-# dotfiles
+# dotfiles [![CI](https://github.com/Ooscaar/dotfiles/actions/workflows/main.yml/badge.svg)](https://github.com/Ooscaar/dotfiles/actions/workflows/main.yml)
 Personal dotfiles 
 
 ## Configurations
