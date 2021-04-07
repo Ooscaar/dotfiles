@@ -221,7 +221,7 @@ bindsym $mod+Pause mode "$mode_system"
 exec_always --no-startup-id feh --bg-scale $HOME/.config/i3/images/copyright_www.danielronnback.com_019.jpg
 
 # Layouts
-exec --no-startup-id $HOME/.config/i3/scripts/alternating_layouts.py
+exec_always --no-startup-id $HOME/.config/i3/scripts/alternating_layouts.py
 
 # HDMI only screen configuration
 # Obtained by:
