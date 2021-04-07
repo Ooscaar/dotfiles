@@ -73,15 +73,18 @@ DISABLE_UPDATE_PROMPT="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
-   	zsh-autosuggestions
-	zsh-syntax-highlighting
-	zsh-completions
-	zsh-256color
+   	#zsh-autosuggestions
+	#zsh-syntax-highlighting
+	#zsh-completions
+	#zsh-256color
 )
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+# Load plugins
+source ~/.zsh/plugins.zsh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

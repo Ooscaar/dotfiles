@@ -4,7 +4,6 @@
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.tabSize": 4,
-    "workbench.colorTheme": "Visual Studio Light",
     "editor.minimap.maxColumn": 80,
     "editor.formatOnSave": true,
     "terminal.integrated.shell.linux": "/bin/zsh",
@@ -27,5 +26,14 @@
         "<C-w>": false,
         "<C-t>": false,
         "<C-f>": false
-    }
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "todo-tree.tree.showScanModeButton": false,
+    "terminal.integrated.fontFamily": "monospace",
+    "update.mode": "manual",
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "workbench.colorTheme": "Default Light+"
 }

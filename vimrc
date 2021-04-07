@@ -15,6 +15,9 @@ filetype off
 " As I'm using lightline, the --INSERT-- in no longer necessary
 set noshowmode
 
+" Disable swap files
+set noswapfile
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
