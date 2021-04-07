@@ -126,3 +126,4 @@ alias gitp="git push"
 # Virtual machine init
 alias oscar-vm="virt-manager -c "qemu:///system" --show-domain-console d2ff2499-0d18-4f4a-b202-b96286a7344f"
 
+alias cat="bat"
