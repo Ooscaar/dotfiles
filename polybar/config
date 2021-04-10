@@ -57,7 +57,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center = date
-modules-right = filesystem pulseaudio wlan eth battery temperature powermenu
+modules-right = filesystem pulseaudio wlan eth battery airpods temperature powermenu
 
 tray-position = right
 tray-padding = 2
@@ -412,6 +412,13 @@ menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
 
+[module/airpods]
+type = custom/script
+exec = ~/bin/polybar.sh
+interval = 5
+label-font = 3
+format-underline = #76dd21
+
 [settings]
 screenchange-reload = true
 ;compositing-background = xor
@@ -423,5 +430,7 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
+
+
 
 ; vim:ft=dosini
