@@ -22,6 +22,8 @@
     "vim.smartRelativeLine": true,
     "vim.camelCaseMotion.enable": true,
     "vim.handleKeys": {
+        "<C-n>:": false,
+        "<C-b>": false,
         "<C-d>": false,
         "<C-w>": false,
         "<C-t>": false,
