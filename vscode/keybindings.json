@@ -12,33 +12,11 @@
       },
       {
             "key": "ctrl+n",
-            "command": "-workbench.action.files.newUntitledFile"
+            "command": "workbench.view.explorer"
       },
       {
             "key": "ctrl+n",
-            "command": "-extension.vim_ctrl+n",
-            "when": "editorTextFocus && vim.active && vim.use<C-n> && !inDebugRepl || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
+            "command": "workbench.action.toggleSidebarVisibility",
+            "when": "explorerViewletVisible"
       },
-      {
-            "key": "ctrl+shift+n",
-            "command": "workbench.action.toggleSidebarVisibility"
-      },
-      {
-            "key": "ctrl+b",
-            "command": "-workbench.action.toggleSidebarVisibility"
-      },
-      {
-            "key": "ctrl+shift+n",
-            "command": "-workbench.action.newWindow"
-      },
-      {
-            "key": "ctrl+n",
-            "command": "workbench.view.explorer",
-            "when": "viewContainer.workbench.view.explorer.enabled"
-      },
-      {
-            "key": "ctrl+shift+e",
-            "command": "-workbench.view.explorer",
-            "when": "viewContainer.workbench.view.explorer.enabled"
-      }
 ]
