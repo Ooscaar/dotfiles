@@ -12,6 +12,7 @@ export ZSH="/home/$(whoami)/.oh-my-zsh"
 #ZSH_THEME="random"
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="afowler"
+#ZSH_THEME="avit"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -26,8 +27,7 @@ ZSH_THEME="afowler"
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+# Uncomment the following line to disable bi-weekly auto-update checks. DISABLE_AUTO_UPDATE="true"
 
 # Uncomment the following line to automatically update without prompting.
 DISABLE_UPDATE_PROMPT="true"
@@ -73,15 +73,17 @@ DISABLE_UPDATE_PROMPT="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
-   	#zsh-autosuggestions
-	#zsh-syntax-highlighting
-	#zsh-completions
-	#zsh-256color
+#   	zsh-autosuggestions
+#	zsh-syntax-highlighting
+#	zsh-completions
+#	zsh-256color
 )
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+######################
+# User configuration #
+######################
 
 # Load plugins
 source ~/.zsh/plugins.zsh
@@ -92,11 +94,11 @@ source ~/.zsh/plugins.zsh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -111,19 +113,16 @@ alias zshconfig="vim ~/.zshrc"
 alias vimconfig="vim ~/.vimrc"
 alias tmuxconfg="vim ~/.tmux.conf"
 
-alias firefox="flatpak run org.mozilla.firefox"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias cdUni="cd ~/Universidad/4A/"
-alias cdTFG="cd ~/Universidad/repos"
-
-# TFG vnc viewer
-alias vtfg="vncviewer -shared -via 01.tfgdevops.gold localhost:1"
-
 # Git alias
 alias gits="git status"
 alias gitp="git push"
 
-# Virtual machine init
-alias oscar-vm="virt-manager -c "qemu:///system" --show-domain-console d2ff2499-0d18-4f4a-b202-b96286a7344f"
-
+# Common aliases
 alias cat="bat"
+alias code="code-insiders"
+
+# Set up secrets
+source ~/.secrets.zsh
+
+# Set up starship
+eval "$(starship init zsh)"
