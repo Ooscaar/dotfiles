@@ -45,11 +45,11 @@ root: ~/w/eseleos/c/middleware
 # attach: false
 
 windows:
-  - server: cd loopback/
+  - server: 
   - docker-compose: 
       layout: main-horizontal
-      root: ~/w/eseleos/c/middleware/docker-compose
+      root: ~/w/eseleos/c/middleware/
       panes:
         - 
         - 
-  - editor: code-insiders .
+  - editor: code-insiders 

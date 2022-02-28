@@ -20,6 +20,8 @@
     ~/.config/VSCodium/settings.json: vscode/settings.json
     ~/.config/VSCodium/keybindings.json: vscode/keybindings.json
     ~/.config/dunst/dunstrc: config/dunst/dunstrc
+    ~/.config/tmuxinator: tmuxinator
+
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
