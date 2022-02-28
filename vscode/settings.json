@@ -5,8 +5,9 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.tabSize": 4,
     "editor.minimap.maxColumn": 80,
-    "editor.formatOnSave": true,
-    "terminal.integrated.shell.linux": "/bin/zsh",
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontSize": 13,
+    "editor.fontLigatures": true,
     // Vim config
     "vim.insertModeKeyBindings": [
         {
@@ -37,5 +38,34 @@
     "update.mode": "manual",
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
-    "workbench.colorTheme": "Default Light+"
+    "window.zoomLevel": 1,
+    "cSpell.language": "en,en-GB",
+    "cSpell.userWords": [
+        "PBKDF",
+        "Universidad",
+        "cbxyx",
+        "le",
+        "mu",
+        "scyi",
+        "vbi"
+    ],
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "editor.formatOnSave": true,
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "editor.renderLineHighlight": "all",
+    "workbench.colorCustomizations": {
+        "editor.lineHighlightBackground": "#4b4a4a"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "workbench.colorTheme": "Gruvbox Dark Soft",
+    "cSpell.enabled": false,
+    "eslint.alwaysShowStatus": true,
+    "eslint.format.enable": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "latex-workshop.view.pdf.viewer": "tab",
 }

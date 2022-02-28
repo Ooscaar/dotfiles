@@ -19,4 +19,8 @@
             "command": "workbench.action.toggleSidebarVisibility",
             "when": "explorerViewletVisible"
       },
+      {
+            "key": "ctrl+down",
+            "command": "workbench.action.terminal.focusPrevious"
+      },
 ]
