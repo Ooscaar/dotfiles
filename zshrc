@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/bin:$HOME/.cargo/bin:/usr/local/bin/:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/$(whoami)/.oh-my-zsh"
@@ -119,15 +119,23 @@ alias gits="git status"
 alias gitp="git push"
 
 # Common aliases
-alias cat="bat"
-alias code="code-insiders"
+# If bat exists set alias
+if [ -f /usr/local/bin/bat ]; then
+  alias cat="bat"
+fi
+if [ -f /usr/bin/bat ]; then
+  alias cat="bat"
+fi
+if [ -f /usr/local/bin/batcat ]; then
+  alias cat="bat"
+fi
+if [ -f /usr/bin/code-insiders ]; then
+  alias code="code-insiders"
+fi
 
 # Set up secrets
 source ~/.secrets.zsh
 
-# Configure nvm
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Set up starship
 eval "$(starship init zsh)"
