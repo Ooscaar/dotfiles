@@ -2,6 +2,7 @@
     link:
       create: true
       relink: true
+      force: true
 
 - clean: ['~', '~/.config']
 
@@ -21,6 +22,7 @@
     ~/.config/VSCodium/keybindings.json: vscode/keybindings.json
     ~/.config/dunst/dunstrc: config/dunst/dunstrc
     ~/.config/tmuxinator: tmuxinator
+    ~/.config/alacritty: alacritty
 
 
 - shell:
