@@ -6,9 +6,15 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-# Launch Polybar, using default config location ~/.config/polybar/config
-polybar example -c ~/.config/polybar/config &
-#polybar main -c config.jonhoo 
+# Adapted from:
+# https://github.com/polybar/polybar/issues/763
+if type "xrandr"; then
+  for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+    MONITOR=$m polybar --reload example -c ~/.config/polybar/config &
+  done
+else
+  polybar --reload example -c ~/.config/polybar/config &
+fi
 
 echo "Polybar launched..."
 

@@ -4,6 +4,10 @@ export PATH="$HOME/.local/bin:$HOME/bin:$HOME/.cargo/bin:/usr/local/bin/:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH="/home/$(whoami)/.oh-my-zsh"
 
+export FLYCTL_INSTALL="/home/operez/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -74,6 +78,8 @@ DISABLE_UPDATE_PROMPT="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
+	docker 
+	docker-compose
 #   	zsh-autosuggestions
 #	zsh-syntax-highlighting
 #	zsh-completions
@@ -94,11 +100,12 @@ source ~/.zsh/plugins.zsh
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+EDITOR='vi'
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='vi'
 else
-  export EDITOR='nvim'
+  export EDITOR='vi'
 fi
 
 # Compilation flags
@@ -118,24 +125,30 @@ alias tmuxconfg="vim ~/.tmux.conf"
 alias gits="git status"
 alias gitp="git push"
 
+# Set up nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
 # Common aliases
-# If bat exists set alias
-if [ -f /usr/local/bin/bat ]; then
-  alias cat="bat"
-fi
-if [ -f /usr/bin/bat ]; then
-  alias cat="bat"
-fi
-if [ -f /usr/local/bin/batcat ]; then
-  alias cat="bat"
-fi
-if [ -f /usr/bin/code-insiders ]; then
-  alias code="code-insiders"
-fi
+alias cat="bat"
+alias caddy="caddy_linux_amd64_custom"
+
+# if [ -f /usr/bin/code-insiders ]; then
+#   alias code="code-insiders"
+# fi
 
 # Set up secrets
 source ~/.secrets.zsh
 
-
 # Set up starship
 eval "$(starship init zsh)"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
+
+# bun completions
+[ -s "/home/operez/.bun/_bun" ] && source "/home/operez/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

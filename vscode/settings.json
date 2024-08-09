@@ -1,71 +1,97 @@
 {
-    // General configs
-    "editor.suggestSelection": "first",
-    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "diffEditor.ignoreTrimWhitespace": false,
-    "editor.tabSize": 4,
-    "editor.minimap.maxColumn": 80,
-    "editor.fontFamily": "JetBrains Mono",
-    "editor.fontSize": 13,
-    "editor.fontLigatures": true,
-    // Vim config
-    "vim.insertModeKeyBindings": [
-        {
-            "before": [
-                "j",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
-        }
-    ],
-    "vim.smartRelativeLine": true,
-    "vim.camelCaseMotion.enable": true,
-    "vim.handleKeys": {
-        "<C-n>:": false,
-        "<C-b>": false,
-        "<C-d>": false,
-        "<C-w>": false,
-        "<C-t>": false,
-        "<C-f>": false
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "todo-tree.tree.showScanModeButton": false,
-    "terminal.integrated.fontFamily": "monospace",
-    "update.mode": "manual",
-    "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false,
-    "window.zoomLevel": 1,
-    "cSpell.language": "en,en-GB",
-    "cSpell.userWords": [
-        "PBKDF",
-        "Universidad",
-        "cbxyx",
-        "le",
-        "mu",
-        "scyi",
-        "vbi"
-    ],
-    "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "editor.formatOnSave": true,
-    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-    "editor.renderLineHighlight": "all",
-    "workbench.colorCustomizations": {
-        "editor.lineHighlightBackground": "#4b4a4a"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "workbench.colorTheme": "Gruvbox Dark Soft",
-    "cSpell.enabled": false,
-    "eslint.alwaysShowStatus": true,
-    "eslint.format.enable": true,
-    "editor.formatOnPaste": true,
-    "editor.formatOnType": true,
-    "latex-workshop.view.pdf.viewer": "tab",
+  // General configs
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "editor.tabSize": 4,
+  "editor.minimap.maxColumn": 80,
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontSize": 13,
+  "editor.fontLigatures": true,
+  // Vim config
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.smartRelativeLine": true,
+  "vim.camelCaseMotion.enable": true,
+  "vim.handleKeys": {
+    "<C-n>:": false,
+    "<C-b>": false,
+    "<C-d>": false,
+    "<C-w>": false,
+    "<C-t>": false,
+    "<C-f>": false
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "todo-tree.tree.showScanModeButton": false,
+  "terminal.integrated.fontFamily": "monospace",
+  "update.mode": "manual",
+  "telemetry.telemetryLevel": "off",
+  "cSpell.language": "en,en-GB",
+  "cSpell.userWords": [
+    "PBKDF",
+    "Universidad",
+    "cbxyx",
+    "le",
+    "mu",
+    "scyi",
+    "vbi"
+  ],
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "editor.formatOnSave": true,
+  "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+  "editor.renderLineHighlight": "all",
+  "workbench.colorCustomizations": {
+    "editor.lineHighlightBackground": "#4b4a4a"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "workbench.colorTheme": "GitHub Dark",
+  "cSpell.enabled": false,
+  "eslint.alwaysShowStatus": true,
+  "eslint.format.enable": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "latex-workshop.view.pdf.viewer": "tab",
+  "editor.inlineSuggest.enabled": true,
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false,
+    "yaml": true,
+    "typescript": true,
+    "git-commit": false,
+    "typescriptreact": true,
+    "rust": true
+  },
+  "editor.bracketPairColorization.enabled": false,
+  "gitlens.heatmap.hotColor": "#0a60f6",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "git.autofetch": true,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "workbench.editorAssociations": {
+    "*.xlsx": "default"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "aws.telemetry": false,
+  "workbench.sideBar.location": "right",
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "window.zoomLevel": 1,
+  "prisma.showPrismaDataPlatformNotification": false,
+  "gitlens.launchpad.indicator.enabled": false
 }
