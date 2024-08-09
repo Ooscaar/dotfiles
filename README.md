@@ -1,5 +1,7 @@
 # Dotfiles [![CI](https://github.com/Ooscaar/dotfiles/actions/workflows/main.yml/badge.svg)](https://github.com/Ooscaar/dotfiles/actions/workflows/main.yml)
 
+![image](https://github.com/user-attachments/assets/722cdffd-a593-45d0-96dc-80cb984f9371)
+
 Personal dotfiles managed with [Dotbot](https://github.com/anishathalye/dotbot)
 
 ## Getting Started
