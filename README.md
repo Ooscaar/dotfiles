@@ -34,6 +34,11 @@ This dotfiles repository includes configurations for various tools and applicati
 - [Dunst](https://dunst-project.org/): `~/.config/dunst/dunstrc`
 - [Alacritty](https://alacritty.org/): `~/.config/alacritty`
 
+Additional scripts:
+
+- [Backup script](backup/script.sh): A script for backing up your configurations
+- [i3 Alternating Layout](i3/alternating_layouts.py): A Python script for automatic layout in i3
+
 ## Customization
 
 You can customize these configurations by modifying the respective files in this repository. After making changes, run the `./install` script again to update the symlinks.
