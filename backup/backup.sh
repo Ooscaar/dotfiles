@@ -17,7 +17,7 @@ EXCLUDE_FILE=
 
 # Send notification backup
 # TODO(oscar): Add datetime
-notify-send 'Backup' '16:00: backing up to NAS' --icon=dialog-information
+notify-send 'Backup' 'loading ...' --icon=dialog-information
 
 # Execute restic backup
 log=$(restic backup $BACKUP_DIR --verbose --exclude-file $EXCLUDE_FILE 2>&1)
