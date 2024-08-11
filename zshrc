@@ -125,10 +125,6 @@ alias tmuxconfg="vim ~/.tmux.conf"
 alias gits="git status"
 alias gitp="git push"
 
-# Set up nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 # Common aliases
 alias cat="bat"
 alias caddy="caddy_linux_amd64_custom"
@@ -138,7 +134,9 @@ alias caddy="caddy_linux_amd64_custom"
 # fi
 
 # Set up secrets
-source ~/.secrets.zsh
+if [ -f ~/.secrets.zsh ]; then
+    source ~/.secrets.zsh
+fi
 
 # Set up starship
 eval "$(starship init zsh)"
@@ -152,3 +150,6 @@ complete -o nospace -C /usr/bin/terraform terraform
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Mise
+eval "$(/usr/bin/mise activate zsh)"
