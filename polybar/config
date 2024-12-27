@@ -57,15 +57,14 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = i3
 modules-center = date
-#modules-right = filesystem pulseaudio wlan eth battery airpods temperature powermenu
-modules-right = filesystem pulseaudio wlan eth battery temperature powermenu
+modules-right = filesystem pulseaudio wlan tailscale temperature backlight-amd battery xbacklight powermenu
 
 tray-position = right
 tray-padding = 2
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
-;wm-restack = i3
+wm-restack = i3
 
 ;override-redirect = true
 
@@ -103,7 +102,6 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
-mount-1 = /home/operez/
 
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
@@ -205,6 +203,54 @@ inherit = module/xbacklight
 type = internal/backlight
 card = intel_backlight
 
+[module/backlight-amd]
+inherit = module/xbacklight
+type = internal/backlight
+card = amdgpu_bl1
+
+[module/backlight]
+type = internal/backlight
+
+; Use the following command to list available cards:
+; $ ls -1 /sys/class/backlight/
+; Default: first usable card in /sys/class/backlight (new in version 3.7.0)
+#card = intel_backlight
+card = amdgpu_bl1
+
+; Use the `/sys/class/backlight/.../actual-brightness` file
+; rather than the regular `brightness` file.
+; New in version 3.6.0
+; Changed in version: 3.7.0: Defaults to true also on amdgpu backlights
+; Default: true
+use-actual-brightness = true
+
+; Interval in seconds after which after which the current brightness is read
+; (even if no update is detected).
+; Use this as a fallback if brightness updates are not registering in polybar
+; (which happens if the use-actual-brightness is false).
+; There is no guarantee on the precisio of this timing.
+; Set to 0 to turn off
+; New in version 3.7.0
+; Default: 0 (5 if use-actual-brightness is false)
+poll-interval = 0
+
+; Enable changing the backlight with the scroll wheel
+; NOTE: This may require additional configuration on some systems. Polybar will
+; write to `/sys/class/backlight/${self.card}/brightness` which requires polybar
+; to have write access to that file.
+; DO NOT RUN POLYBAR AS ROOT. 
+; The recommended way is to add the user to the
+; `video` group and give that group write-privileges for the `brightness` file.
+; See the ArchWiki for more information:
+; https://wiki.archlinux.org/index.php/Backlight#ACPI
+; Default: false
+enable-scroll = true
+
+; Interval for changing the brightness (in percentage points).
+; New in version 3.7.0
+; Default: 5
+scroll-interval = 10
+
 [module/cpu]
 type = internal/cpu
 interval = 2
@@ -224,8 +270,8 @@ label = Battery%percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlo1
-interval = 3.0
+interface = wlp3s0
+interval = 5.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = #9f78e1
@@ -245,15 +291,15 @@ ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-alt}
 
-[module/eth]
+[module/tailscale]
 type = internal/network
 interface = tailscale0
 interval = 3.0
 
-format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
+format-connected =  <label-connected>
 label-connected = %local_ip%
+format-connected-underline = #55aa55
+format-connected-prefix-foreground = ${colors.foreground-alt}
 
 format-disconnected =
 ;format-disconnected = <label-disconnected>
