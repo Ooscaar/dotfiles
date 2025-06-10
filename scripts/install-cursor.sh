@@ -18,7 +18,8 @@ cd "$TEMP_DIR" || handle_error "Failed to create/enter temporary directory"
 
 # Download Cursor
 print_status "Downloading Cursor AppImage"
-wget https://downloader.cursor.sh/linux/appImage/x64 -O cursor.AppImage || handle_error "Failed to download Cursor"
+DOWNLOAD_URL=$(curl -s "https://www.cursor.com/api/download?platform=linux-x64&releaseTrack=stable" | jq -r '.downloadUrl') || handle_error "Failed to get download URL"
+wget "$DOWNLOAD_URL" -O cursor.AppImage || handle_error "Failed to download Cursor"
 
 # Make AppImage executable
 print_status "Making AppImage executable"

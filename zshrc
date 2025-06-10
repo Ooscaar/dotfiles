@@ -127,7 +127,8 @@ alias gitp="git push"
 
 # Common aliases
 alias cat="bat"
-alias caddy="caddy_linux_amd64_custom"
+alias k="kubectl"
+#alias caddy="caddy_linux_amd64_custom"
 
 # if [ -f /usr/bin/code-insiders ]; then
 #   alias code="code-insiders"
@@ -138,18 +139,28 @@ if [ -f ~/.secrets.zsh ]; then
     source ~/.secrets.zsh
 fi
 
+# Set up shell completions
+autoload -U compinit; compinit
+
 # Set up starship
 eval "$(starship init zsh)"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/bin/terraform terraform
 
-# bun completions
-[ -s "/home/operez/.bun/_bun" ] && source "/home/operez/.bun/_bun"
-
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # Mise
-eval "$(/usr/bin/mise activate zsh)"
+#eval "$(/usr/bin/mise activate zsh)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/operez/google-cloud-sdk/path.zsh.inc' ]; then . '/home/operez/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/operez/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/operez/google-cloud-sdk/completion.zsh.inc'; fi
+
+. "$HOME/.atuin/bin/env"
+
+eval "$(atuin init zsh --disable-up-arrow)"

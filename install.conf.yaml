@@ -20,6 +20,10 @@
     ~/.config/Code/User/keybindings.json: vscode/keybindings.json
     ~/.config/dunst/dunstrc: config/dunst/dunstrc
     ~/.config/ghostty: ghostty
+    ~/.config/starship.toml: starship/starship.toml
+    ~/.config/atuin/config.toml: atuin/config.toml
+    ~/.config/grobi/grobi.conf: grobi/grobi.conf
+    ~/.config/systemd/user/grobi.service: grobi/grobi.service
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]

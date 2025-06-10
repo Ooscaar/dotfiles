@@ -1,15 +1,9 @@
 // Place your key bindings in this file to override the defaults
 [
-  {
-    "key": "ctrl+z",
-    "command": "workbench.action.toggleMaximizedPanel",
-    "when": "! terminalfocus"
-  },
-  {
-    "key": "ctrl+z",
-    "command": "workbench.action.terminal.toggleTerminal",
-    "when": "terminalFocus"
-  },
+
+  /////////////////
+  // VIEW EXPLORER
+  /////////////////
   {
     "key": "ctrl+n",
     "command": "workbench.view.explorer"
@@ -19,6 +13,50 @@
     "command": "workbench.action.toggleSidebarVisibility",
     "when": "explorerViewletVisible"
   },
+
+
+  /////////////////
+  // TERMINAL RELATED
+  /////////////////
+  {
+    "key": "ctrl+z",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "ctrl+z",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+x",
+    "command": "workbench.action.closePanel",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+z",
+    "command": "-undo"
+  },
+  {
+  "key": "ctrl+l",
+  "command": "workbench.action.terminal.clear",
+  "when": "terminalFocus"
+  },
+  // {
+  //   "key": "ctrl+z",
+  //   "command": "-extension.vim_ctrl+z",
+  //   "when": "editorTextFocus && vim.active && vim.use<C-z> && !inDebugRepl"
+  // },
+  // {
+  //   "key": "ctrl+shift+`",
+  //   "command": "-workbench.action.terminal.new",
+  //   "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
+  // },
+
+
+  /////////////////
+  // ALL
+  /////////////////
   {
     "key": "ctrl+down",
     "command": "workbench.action.terminal.focusPrevious"
@@ -51,5 +89,13 @@
     "key": "ctrl+l",
     "command": "-workbench.action.chat.newChat",
     "when": "hasChatProvider && inChat"
+  },
+  {
+    "key": "ctrl+a",
+    "command": "composerMode.agent"
+  },
+  {
+    "key": "ctrl+m",
+    "command": "composerMode.edit"
   }
 ]

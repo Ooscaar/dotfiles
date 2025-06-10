@@ -116,10 +116,11 @@ bindsym $mod+a focus parent
 set $ws1 "1: admin"
 set $ws2 "2: doc"
 set $ws3 "3: dev"
-set $ws4 "4: dev-extra"
-set $ws5 "5: spotify"
-set $ws6 "6: free"
-set $ws7 "7: vm"
+set $ws4 "4: dev-2"
+set $ws5 "5: dev-3"
+set $ws6 "6: spotify"
+set $ws7 "7: free"
+set $ws8 "8: vm"
 # set $ws8 "8"
 # set $ws9 "9"
 # set $ws10 "10"
@@ -156,6 +157,10 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# Floating window
+bindsym $mod+c move position center
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -222,12 +227,12 @@ bindsym $mod+Pause mode "$mode_system"
 
 
 # Layouts
-exec --no-startup-id $HOME/.config/i3/scripts/alternating_layouts.py
+exec_always --no-startup-id uv run $HOME/.config/i3/scripts/alternating_layouts.py
 
 # HDMI only screen configuration
 # Obtained by:
 # - $: arandr
-exec --no-startup-id $HOME/.config/i3/scripts/layout.sh
+#exec --no-startup-id $HOME/.config/i3/scripts/layout.sh
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

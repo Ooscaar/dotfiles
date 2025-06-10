@@ -122,3 +122,8 @@ export NVM_DIR="$HOME/.nvm"
 . "$HOME/.cargo/env"
 
 complete -C /usr/bin/terraform terraform
+
+. "$HOME/.atuin/bin/env"
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"
