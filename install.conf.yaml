@@ -18,6 +18,8 @@
     ~/.config/polybar: polybar
     ~/.config/Code/User/settings.json: vscode/settings.json
     ~/.config/Code/User/keybindings.json: vscode/keybindings.json
+    ~/.config/Cursor/User/settings.json: vscode/settings.json
+    ~/.config/Cursor/User/keybindings.json: vscode/keybindings.json
     ~/.config/dunst/dunstrc: config/dunst/dunstrc
     ~/.config/ghostty: ghostty
     ~/.config/starship.toml: starship/starship.toml
