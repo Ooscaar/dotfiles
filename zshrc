@@ -1,166 +1,153 @@
-# If you come from bash you might have to change your $PATH.
-export PATH="$HOME/.local/bin:$HOME/bin:$HOME/.cargo/bin:/usr/local/bin/:$PATH"
+#!/usr/bin/env zsh
 
-# Path to your oh-my-zsh installation.
-export ZSH="/home/$(whoami)/.oh-my-zsh"
+################################################################################
+# PATH CONFIGURATION - All path entries consolidated
+################################################################################
+typeset -U path PATH
+path=(
+	"$HOME/.local/bin"
+	"$HOME/bin"
+	"$HOME/.cargo/bin"
+	"/usr/local/bin"
+	"$HOME/.fly/bin"
+	"/usr/local/go/bin"
+	"$HOME/.bun/bin"
+	"$HOME/.local/share/pnpm"
+	"$HOME/.opencode/bin"
+	"$HOME/.lmstudio/bin"
+	$path
+)
 
-export FLYCTL_INSTALL="/home/operez/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
-export PATH=$PATH:/usr/local/go/bin
+# Tool-specific exports
+export FLYCTL_INSTALL="$HOME/.fly"
+export BUN_INSTALL="$HOME/.bun"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-
-#ZSH_THEME="random"
-#ZSH_THEME="robbyrussell"
+################################################################################
+# OH-MY-ZSH CONFIGURATION
+################################################################################
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="afowler"
-#ZSH_THEME="avit"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
+# Disable auto-updates for faster startup
 DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
 DISABLE_UPDATE_PROMPT="true"
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-#ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
+# Plugins - keep minimal for performance
 plugins=(
 	git
-	docker 
+	docker
 	docker-compose
-#   	zsh-autosuggestions
-#	zsh-syntax-highlighting
-#	zsh-completions
-#	zsh-256color
 )
 
 source $ZSH/oh-my-zsh.sh
 
-######################
-# User configuration #
-######################
-
-# Load plugins
-source ~/.zsh/plugins.zsh
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-EDITOR='vi'
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vi'
-else
-  export EDITOR='vi'
+################################################################################
+# ZSH PLUGINS (External)
+################################################################################
+if [ -f ~/.zsh/plugins.zsh ]; then
+	source ~/.zsh/plugins.zsh
 fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+################################################################################
+# COMPLETION SYSTEM - Optimized with caching
+################################################################################
+# Use completion cache to speed up startup (regenerate daily)
+autoload -Uz compinit
+zcompdump="${ZDOTDIR:-$HOME}/.zcompdump"
+if [[ -n ${zcompdump}(#qN.mh+24) ]]; then
+	compinit
+else
+	compinit -C
+fi
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-alias zshconfig="vim ~/.zshrc"
-alias vimconfig="vim ~/.vimrc"
-alias tmuxconfg="vim ~/.tmux.conf"
+# Bash completions
+autoload -U +X bashcompinit && bashcompinit
+if command -v terraform >/dev/null 2>&1; then
+	complete -o nospace -C /usr/bin/terraform terraform
+fi
 
-# Git alias
-alias gits="git status"
-alias gitp="git push"
+################################################################################
+# ENVIRONMENT VARIABLES
+################################################################################
+export EDITOR='vi'
 
-# Common aliases
-alias cat="bat"
-alias k="kubectl"
-#alias caddy="caddy_linux_amd64_custom"
-
-# if [ -f /usr/bin/code-insiders ]; then
-#   alias code="code-insiders"
-# fi
-
-# Set up secrets
+# Secrets
 if [ -f ~/.secrets.zsh ]; then
     source ~/.secrets.zsh
 fi
 
-# Set up shell completions
-autoload -U compinit; compinit
+################################################################################
+# ALIASES
+################################################################################
+# Config shortcuts
+alias zshconfig="vim ~/.zshrc"
+alias vimconfig="vim ~/.vimrc"
+alias tmuxconfg="vim ~/.tmux.conf"
+alias tmuxconfig="vim ~/.tmux.conf"
 
-# Set up starship
-eval "$(starship init zsh)"
+# Git shortcuts
+alias gits="git status"
+alias gitp="git push"
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/terraform terraform
+# Common tools
+alias cat="bat"
+alias k="kubectl"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+################################################################################
+# LAZY-LOADED KUBECTL COMPLETION (Performance optimization)
+################################################################################
+# Kubectl completion is very slow, so lazy load it on first use
+kubectl() {
+    if ! type __start_kubectl >/dev/null 2>&1; then
+        source <(command kubectl completion zsh)
+    fi
+    command kubectl "$@"
+}
 
-# Mise
-#eval "$(/usr/bin/mise activate zsh)"
+################################################################################
+# PROMPT AND TOOLS INITIALIZATION
+################################################################################
+# Starship prompt
+if command -v starship >/dev/null 2>&1; then
+	eval "$(starship init zsh)"
+fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/operez/google-cloud-sdk/path.zsh.inc' ]; then . '/home/operez/google-cloud-sdk/path.zsh.inc'; fi
+# Mise (runtime manager)
+if [ -x /usr/bin/mise ]; then
+	eval "$(/usr/bin/mise activate zsh)"
+fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/operez/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/operez/google-cloud-sdk/completion.zsh.inc'; fi
+# Atuin (shell history)
+if [ -f "$HOME/.atuin/bin/env" ]; then
+	. "$HOME/.atuin/bin/env"
+fi
+if command -v atuin >/dev/null 2>&1; then
+	eval "$(atuin init zsh --disable-up-arrow)"
+fi
 
-. "$HOME/.atuin/bin/env"
+################################################################################
+# GOOGLE CLOUD SDK
+################################################################################
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then
+    . "$HOME/google-cloud-sdk/path.zsh.inc"
+fi
 
-eval "$(atuin init zsh --disable-up-arrow)"
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then
+    . "$HOME/google-cloud-sdk/completion.zsh.inc"
+fi
+
+################################################################################
+# BUN COMPLETIONS
+################################################################################
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+################################################################################
+# CUSTOM INIT
+################################################################################
+if [ -f "$HOME/.local/try.rb" ]; then
+	eval "$(ruby "$HOME/.local/try.rb" init "$HOME/src/tries")"
+fi
+
+# bun completions
+[ -s "/home/operez/.bun/_bun" ] && source "/home/operez/.bun/_bun"
